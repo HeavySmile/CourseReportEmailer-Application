@@ -22,8 +22,7 @@ namespace CourseReportEmailer.Commands
             List<EnrollmentDetailReportModel> list = new List<EnrollmentDetailReportModel>();
             var sql = "EnrollmentReport_GetList";
             
-
-            using (SqlConnection connection = new SqlConnection())
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 list = connection.Query<EnrollmentDetailReportModel>(sql).ToList();
             }
